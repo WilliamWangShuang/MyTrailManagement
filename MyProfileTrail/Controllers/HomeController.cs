@@ -10,6 +10,7 @@ namespace MyProfileTrail.Controllers
     {
         public ActionResult Index()
         {
+            //test
             return View();
         }
 
