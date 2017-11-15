@@ -1,0 +1,72 @@
+﻿@model MyProfileTrail.Models.Customer
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-head-line">Registration</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Thank you for your intreset
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label id="lblFirstName">First Name</label>
+                            @Html.EditorFor(model => model.CFirstName, new { htmlAttributes = new { @id="txtFirstName", @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CFirstName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label id="lblLastName">Last Name</label>
+                            @Html.EditorFor(model => model.CLastName, new { htmlAttributes = new { @id = "txtLastName", @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CLastName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label id="lblEmail">Email address</label>
+                            <span class="glyphicon glyphicon-info-sign text-danger" title="This email will be login account"></span>
+                            @*<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" />*@
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label id="lblPassword">Password</label>
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @id="txtPwd", @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label id="lblConfirmPassword">Confrim Password</label>
+                            <input type="text" class="form-control" id="txtConirmPwd" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Photo</label>
+                            <input type="file" id="flPhoto" />
+                        </div>
+
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to Home", "Index", "Home")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

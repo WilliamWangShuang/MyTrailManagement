@@ -76,7 +76,7 @@
                             <li><a href="ui.html">UI Elements</a></li>
                             <li><a href="table.html">Data Tables</a></li>
                             <li><a href="forms.html">Forms</a></li>
-                            <li><a href="login.html">Login Page</a></li>
+                            <li>@Html.ActionLink("Register", "Create", "Customers")</li>
                             <li><a href="blank.html">Blank Page</a></li>
 
                         </ul>
@@ -94,9 +94,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        &copy; 2015 YourCompany | By : <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap</a>
+                        &copy; @DateTime.Now.Year Dream
                     </div>
-
                 </div>
             </div>
         </footer>

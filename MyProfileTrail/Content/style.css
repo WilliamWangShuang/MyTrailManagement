@@ -24,6 +24,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 30px;
+    padding-top:0 !important;
 }
 
 .set-radius-zero {
