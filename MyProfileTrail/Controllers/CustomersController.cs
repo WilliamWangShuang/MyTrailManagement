@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MyProfileTrail.Models;
+using Resources;
 
 namespace MyProfileTrail.Controllers
 {
@@ -46,10 +47,11 @@ namespace MyProfileTrail.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CFirstName,CLastName,Email,Password,Role")] Customer customer)
+        public ActionResult Create([Bind(Include = "Id,CFirstName,CLastName,Email,Password")] Customer customer)
         {
             if (ModelState.IsValid)
             {
+                customer.Role = Constant.ROLE_EMPLOYER;
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
