@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using MyProfileTrail.Models;
 using Resources;
+using MyProfileTrail.FutureSparkUtility;
 
 namespace MyProfileTrail.Controllers
 {
@@ -52,6 +53,7 @@ namespace MyProfileTrail.Controllers
             if (ModelState.IsValid)
             {
                 customer.Role = Constant.ROLE_EMPLOYER;
+                customer.Password = AesEncryptamajig.Encrypt(customer.Password, AesEncryptamajig.getKey());
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");

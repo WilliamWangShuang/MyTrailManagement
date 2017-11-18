@@ -43,12 +43,12 @@
                         </div>
                         <div class="form-group">
                             <label id="lblPassword">Password</label>
-                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @id="txtPwd", @class = "form-control" } })
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @id="txtPwd", @class = "form-control", @type="password" } })
                             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             <label id="lblConfirmPassword">Confrim Password</label>
-                            <input type="text" class="form-control" id="txtConirmPwd" />
+                            <input type="password" class="form-control" id="txtConirmPwd" />
                         </div>
                         <div class="form-group">
                             <label for="exampleInputFile">Photo</label>
