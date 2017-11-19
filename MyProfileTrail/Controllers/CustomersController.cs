@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using MyProfileTrail.Models;
 using Resources;
 using MyProfileTrail.FutureSparkUtility;
+using System.IO;
 
 namespace MyProfileTrail.Controllers
 {
@@ -44,11 +45,9 @@ namespace MyProfileTrail.Controllers
         }
 
         // POST: Customers/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CFirstName,CLastName,Email,Password")] Customer customer)
+        public ActionResult Create(HttpPostedFileBase postFile, [Bind(Include = "Id,CFirstName,CLastName,Email,Password")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -56,10 +55,20 @@ namespace MyProfileTrail.Controllers
                 customer.Password = AesEncryptamajig.Encrypt(customer.Password, AesEncryptamajig.getKey());
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                //upload profile photo
+                if(postFile != null)
+                {
+                    string path = Server.MapPath("~/ProfilePic/");
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    postFile.SaveAs(path + customer.Id);
+                }
             }
 
-            return View(customer);
+            return RedirectToAction("Index");
         }
 
         // GET: Customers/Edit/5

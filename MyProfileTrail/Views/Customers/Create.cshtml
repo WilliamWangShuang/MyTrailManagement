@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Customers", FormMethod.Post, new { enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -26,36 +26,42 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <label id="lblFirstName">First Name</label>
-                            @Html.EditorFor(model => model.CFirstName, new { htmlAttributes = new { @id="txtFirstName", @class = "form-control" } })
+                            @Html.EditorFor(model => model.CFirstName, new { htmlAttributes = new { @id="txtFirstName", @class = "form-control", @onblur = "registor_validate_first_name();" } })
                             @Html.ValidationMessageFor(model => model.CFirstName, "", new { @class = "text-danger" })
+                            <span id="spanClientSideValidateFirstName" style="display:none;color:black" class="label label-warning">@Resources.ErrorMessage.FirstNameBlank</span>
                         </div>
                         <div class="form-group">
                             <label id="lblLastName">Last Name</label>
-                            @Html.EditorFor(model => model.CLastName, new { htmlAttributes = new { @id = "txtLastName", @class = "form-control" } })
+                            @Html.EditorFor(model => model.CLastName, new { htmlAttributes = new { @id = "txtLastName", @class = "form-control", @onblur = "registor_validate_last_name();" } })
                             @Html.ValidationMessageFor(model => model.CLastName, "", new { @class = "text-danger" })
+                            <span id="spanClientSideValidateLastName" style="display:none;color:black" class="label label-warning">@Resources.ErrorMessage.LastNameBlank</span>
                         </div>
                         <div class="form-group">
                             <label id="lblEmail">Email address</label>
-                            <span class="glyphicon glyphicon-info-sign text-danger" title="This email will be login account"></span>
-                            @*<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" />*@
-                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            <span class="glyphicon glyphicon-info-sign text-danger" title="@Resources.PageTextContentResources.emailExplanationTooltip"></span>
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @id="txtEmail", @class = "form-control", @onblur = "registor_validate_email();" } })
                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            <span id="spanClientSideValidateEmail" style="display:none;color:black" class="label label-warning">@Resources.ErrorMessage.Email</span>
                         </div>
                         <div class="form-group">
                             <label id="lblPassword">Password</label>
-                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @id="txtPwd", @class = "form-control", @type="password" } })
+                            <span class="glyphicon glyphicon-info-sign text-danger" title="@Resources.PageTextContentResources.passwordExplanationTooltip"></span>
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @id="txtPwd", @class = "form-control", @type="password", @onblur = "registor_validate_password();" } })
                             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            <span id="spanClientSideValidatePwd" style="display:none;color:black" class="label label-warning">@Resources.ErrorMessage.Password</span>
                         </div>
                         <div class="form-group">
                             <label id="lblConfirmPassword">Confrim Password</label>
-                            <input type="password" class="form-control" id="txtConirmPwd" />
+                            <input type="password" class="form-control" id="txtConirmPwd", onblur = "registor_validate_confrim_password();" />
+                            <span id="spanClientSideValidateConfirmPwd" style="display:none;color:black" class="label label-warning">@Resources.ErrorMessage.PasswordConfirm</span>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputFile">Photo</label>
-                            <input type="file" id="flPhoto" />
+                            <label id="lblProfilePhoto">Photo</label>
+                            <input type="file" id="flPhoto" name="postFile" />
                         </div>
 
-                        <button type="submit" class="btn btn-default">Submit</button>
+                        <input id="btnCreateUI" type="button" class="btn btn-default" value="Submit" onclick="create_user_check_form();" />
+                        <input id="btnCreateUser" type="submit" style="display:none" />
                     </div>
                 </div>
             </div>

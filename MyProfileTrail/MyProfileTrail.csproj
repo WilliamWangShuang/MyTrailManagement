@@ -175,6 +175,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ErrorMessage.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\PageTextContentResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PageTextContentResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -290,6 +295,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="lib\" />
+    <Folder Include="ProfilePic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -316,6 +322,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\PageTextContentResources.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>PageTextContentResources.Designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

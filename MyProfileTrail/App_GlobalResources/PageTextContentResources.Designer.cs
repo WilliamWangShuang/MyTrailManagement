@@ -22,14 +22,14 @@ namespace Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "14.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ErrorMessage {
+    internal class PageTextContentResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ErrorMessage() {
+        internal PageTextContentResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.ErrorMessage", global::System.Reflection.Assembly.Load("App_GlobalResources"));
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.PageTextContentResources", global::System.Reflection.Assembly.Load("App_GlobalResources"));
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,56 +61,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email must be provided and in a correct format. Should contain &apos;@&apos;..
+        ///   Looks up a localized string similar to This email will be used as login account.
         /// </summary>
-        internal static string Email {
+        internal static string emailExplanationTooltip {
             get {
-                return ResourceManager.GetString("Email", resourceCulture);
+                return ResourceManager.GetString("emailExplanationTooltip", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please input your first name.
+        ///   Looks up a localized string similar to Password must not less than 8 characters and contain both capital and lower case character. At least contain one numeric letter and one of these special characters &apos;@&apos;, &apos;/&apos;,&apos;*&apos;,&apos;&amp;&apos;,&apos;%&apos;,&apos;$&apos;,&apos;#&apos;..
         /// </summary>
-        internal static string FirstNameBlank {
+        internal static string passwordExplanationTooltip {
             get {
-                return ResourceManager.GetString("FirstNameBlank", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Key file is not found.
-        /// </summary>
-        internal static string KeyFileNotFound {
-            get {
-                return ResourceManager.GetString("KeyFileNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please input your last name.
-        /// </summary>
-        internal static string LastNameBlank {
-            get {
-                return ResourceManager.GetString("LastNameBlank", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Invalid password. Must not less than 8 characters and contain both capital and lower case character. At least contain one numeric letter and one of these special characters &apos;@&apos;, &apos;/&apos;,&apos;*&apos;,&apos;&amp;&apos;,&apos;%&apos;,&apos;$&apos;,&apos;#&apos;..
-        /// </summary>
-        internal static string Password {
-            get {
-                return ResourceManager.GetString("Password", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Not identitcal with the password you entered. Please check if there is any typo.
-        /// </summary>
-        internal static string PasswordConfirm {
-            get {
-                return ResourceManager.GetString("PasswordConfirm", resourceCulture);
+                return ResourceManager.GetString("passwordExplanationTooltip", resourceCulture);
             }
         }
     }

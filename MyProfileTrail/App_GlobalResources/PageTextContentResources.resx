@@ -117,27 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Email" xml:space="preserve">
-    <value>Email must be provided and in a correct format. Should contain '@'.</value>
-    <comment>Email cannot be empty and must be in correct email format</comment>
+  <data name="emailExplanationTooltip" xml:space="preserve">
+    <value>This email will be used as login account</value>
   </data>
-  <data name="FirstNameBlank" xml:space="preserve">
-    <value>Please input your first name</value>
-    <comment>first name cannot be empty</comment>
-  </data>
-  <data name="KeyFileNotFound" xml:space="preserve">
-    <value>Key file is not found</value>
-    <comment>key used to encrypt user password</comment>
-  </data>
-  <data name="LastNameBlank" xml:space="preserve">
-    <value>Please input your last name</value>
-    <comment>last name cannot be empty</comment>
-  </data>
-  <data name="Password" xml:space="preserve">
-    <value>Invalid password. Must not less than 8 characters and contain both capital and lower case character. At least contain one numeric letter and one of these special characters '@', '/','*','&amp;','%','$','#'.</value>
-    <comment>must be a strong password</comment>
-  </data>
-  <data name="PasswordConfirm" xml:space="preserve">
-    <value>Not identitcal with the password you entered. Please check if there is any typo</value>
+  <data name="passwordExplanationTooltip" xml:space="preserve">
+    <value>Password must not less than 8 characters and contain both capital and lower case character. At least contain one numeric letter and one of these special characters '@', '/','*','&amp;','%','$','#'.</value>
   </data>
 </root>
