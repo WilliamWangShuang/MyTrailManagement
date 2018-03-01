@@ -68,14 +68,6 @@ function registor_validate_confrim_password() {
 }
 
 function create_user_check_form() {
-    //var isFNameEmpty = "" == $("input[id$='txtFirstName']").val();
-    //var isLNameEmpty = "" == $("input[id$='txtLastName']").val();
-    //var isEmailEmpty = "" == $("input[id$='txtEmail']").val();
-    //var isPwdEmpty = "" == $("input[id$='txtPwd']").val();
-
-    //if (isFNameEmpty || isLNameEmpty || isEmailEmpty || isPwdEmpty) {
-    //    return;
-    //}
     registor_validate_first_name();
     registor_validate_last_name();
     registor_validate_email();

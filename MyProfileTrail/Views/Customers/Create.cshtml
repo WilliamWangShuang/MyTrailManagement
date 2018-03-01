@@ -52,7 +52,7 @@
                         </div>
                         <div class="form-group">
                             <label id="lblConfirmPassword">Confrim Password</label>
-                            <input type="password" class="form-control" id="txtConirmPwd", onblur = "registor_validate_confrim_password();" />
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @id = "txtConirmPwd", @class = "form-control", @type = "password", @onblur = "registor_validate_confrim_password();" } })
                             <span id="spanClientSideValidateConfirmPwd" style="display:none;color:black" class="label label-warning">@Resources.ErrorMessage.PasswordConfirm</span>
                         </div>
                         <div class="form-group">
