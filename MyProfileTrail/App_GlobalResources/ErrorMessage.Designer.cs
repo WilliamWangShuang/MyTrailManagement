@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email or Password is wrong. Please check your spell..
+        /// </summary>
+        internal static string InvalidAccount {
+            get {
+                return ResourceManager.GetString("InvalidAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Key file is not found.
         /// </summary>
         internal static string KeyFileNotFound {
@@ -111,6 +120,15 @@ namespace Resources {
         internal static string PasswordConfirm {
             get {
                 return ResourceManager.GetString("PasswordConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password cannot be empty..
+        /// </summary>
+        internal static string PasswordEmpty {
+            get {
+                return ResourceManager.GetString("PasswordEmpty", resourceCulture);
             }
         }
     }

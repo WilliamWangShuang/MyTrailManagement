@@ -61,6 +61,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to N.
+        /// </summary>
+        internal static string INDICATOR_N {
+            get {
+                return ResourceManager.GetString("INDICATOR_N", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Y.
+        /// </summary>
+        internal static string INDICATOR_Y {
+            get {
+                return ResourceManager.GetString("INDICATOR_Y", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A.
         /// </summary>
         internal static string ROLE_ADMIN {
@@ -75,6 +93,15 @@ namespace Resources {
         internal static string ROLE_EMPLOYER {
             get {
                 return ResourceManager.GetString("ROLE_EMPLOYER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session_key_If_Login.
+        /// </summary>
+        internal static string SK_LOGIN {
+            get {
+                return ResourceManager.GetString("SK_LOGIN", resourceCulture);
             }
         }
     }

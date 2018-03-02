@@ -1,11 +1,11 @@
 ﻿@model MyProfileTrail.Models.Customer
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("Create", "Customers", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+@using (Html.BeginForm("Register", "Customers", FormMethod.Post, new { enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })

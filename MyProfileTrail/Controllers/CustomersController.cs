@@ -38,16 +38,47 @@ namespace MyProfileTrail.Controllers
             return View(customer);
         }
 
-        // GET: Customers/Create
-        public ActionResult Create()
+        //GET: Customers/Login
+        public ActionResult Login()
         {
             return View();
         }
 
-        // POST: Customers/Create
+        //POST: Customers/Login
+        [HttpPost]
+        public ActionResult Login([Bind(Include = "Email,Password")] LoginModel loginForm)
+        {
+            if (ModelState.IsValid)
+            {
+                string loginCusName = string.Empty;
+                bool isCusExist = CustomerDAL.IsCustomer(db.Customers, loginForm, out loginCusName);
+                IEnumerable<Customer> customer = db.Customers.Where(c => c.Email.Equals(loginForm.Email) && c.Password.Equals(loginForm.Password));
+
+                if (isCusExist)
+                {
+                    Session[Constant.SK_LOGIN] = Constant.INDICATOR_Y;
+                    return Json(Url.Action("Index", "Home"));
+                }
+                else
+                {
+                    Session[Constant.SK_LOGIN] = Constant.INDICATOR_N;
+                    return Json("Fail");
+                }
+            }
+
+            return View();            
+        }
+
+        // GET: Customers/Register
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        // POST: Customers/Register
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(HttpPostedFileBase postFile, [Bind(Include = "Id,CFirstName,CLastName,Email,Password")] Customer customer)
+        public ActionResult Register(HttpPostedFileBase postFile, [Bind(Include = "Id,CFirstName,CLastName,Email,Password")] Customer customer)
         {
             if (ModelState.IsValid)
             {

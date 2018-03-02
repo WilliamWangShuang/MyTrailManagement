@@ -67,6 +67,63 @@ function registor_validate_confrim_password() {
     }
 }
 
+// validate empty password when login
+function login_empty_password() {
+    var pwd = $("input[id$='txtPwd']");
+    if ($(pwd).val() === null || $(pwd).val().length == 0)
+        $("#spanClientSideValidatePwd").show();
+    else
+        $("#spanClientSideValidatePwd").hide();
+}
+
+// validate login form on client side to ensure no empty value for password and email(account), and email in correct format
+function login_check_form() {
+    registor_validate_email();
+    login_empty_password();
+
+    if ($("#spanClientSideValidateEmail").is(":hidden") &&
+        $("#spanClientSideValidatePwd").is(":hidden")) {
+        $("#btnLogin").click();
+    }
+}
+
+function confirm_login() {
+    var email = $("input[id$='txtEmail']").val();
+    var password = $("input[id$='txtPwd']").val();
+
+    var jsonObject = {
+        "Email": email,
+        "Password": password
+    };
+
+    $.ajax({
+        url: "/Customers/Login",
+        type: "POST",
+        data: JSON.stringify(jsonObject),
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            isFail = data.match("^Fail");
+            if (!isFail) {
+                $(".fakeloader").fakeLoader({
+
+                    // Time in milliseconds for fakeLoader disappear
+                    timeToHide: 9000,
+
+                    // 'spinner1', 'spinner2', 'spinner3', 'spinner4', 'spinner5', 'spinner6', 'spinner7' 
+                    spinner: "spinner4",
+                    bgColor: "#929292"
+
+                });
+                window.location.href = data;
+            }
+            else {
+                $("#btnShowInvalidAccMsg").click();
+            }
+        }
+    });
+}
+
 function create_user_check_form() {
     registor_validate_first_name();
     registor_validate_last_name();

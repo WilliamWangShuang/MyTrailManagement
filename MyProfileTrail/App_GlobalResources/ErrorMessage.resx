@@ -125,6 +125,9 @@
     <value>Please input your first name</value>
     <comment>first name cannot be empty</comment>
   </data>
+  <data name="InvalidAccount" xml:space="preserve">
+    <value>Email or Password is wrong. Please check your spell.</value>
+  </data>
   <data name="KeyFileNotFound" xml:space="preserve">
     <value>Key file is not found</value>
     <comment>key used to encrypt user password</comment>
@@ -139,5 +142,8 @@
   </data>
   <data name="PasswordConfirm" xml:space="preserve">
     <value>Not identitcal with the password you entered. Please check if there is any typo</value>
+  </data>
+  <data name="PasswordEmpty" xml:space="preserve">
+    <value>Password cannot be empty.</value>
   </data>
 </root>

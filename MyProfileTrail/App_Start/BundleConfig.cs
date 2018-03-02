@@ -11,6 +11,7 @@ namespace MyProfileTrail
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery-ui.min.js",
+                        "~/Scripts/fakeLoader.min.js",
                         "~/Scripts/FutureSpark.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -32,6 +33,7 @@ namespace MyProfileTrail
                       "~/Content/jquery-ui.theme.min.css",
                       "~/Content/site.css",
                       "~/Content/font-awesome.css",
+                      "~/Content/fakeLoader.css",
                       "~/Content/Style.css"));
         }
     }

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Resources
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,9 +15,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <strong>Email: </strong>swan0005@student.monash.edu
-                    &nbsp;&nbsp;
-                    <strong>Support: </strong>+61-449-884-513
+                    @if (Constant.INDICATOR_Y.Equals((String)Session[Constant.SK_LOGIN]))
+                    {
+                        @Html.Label("My Account", htmlAttributes:new { })
+                    }
+                    else
+                    {
+                        <strong>@Html.ActionLink("Login | Register", "Login", "Customers")</strong>
+                    }
                 </div>
             </div>
         </div>
@@ -34,7 +41,7 @@
                 </a>
             </div>
 
-            <div class="left-div">
+            <div id="divLogin" class="left-div">
                 <div class="user-settings-wrapper">
                     <ul class="nav">
                         <li class="dropdown">
@@ -76,7 +83,7 @@
                             <li><a href="ui.html">UI Elements</a></li>
                             <li><a href="table.html">Data Tables</a></li>
                             <li><a href="forms.html">Forms</a></li>
-                            <li>@Html.ActionLink("Register", "Create", "Customers")</li>
+                            <li>@Html.ActionLink("Register", "Register", "Customers")</li>
                             <li><a href="blank.html">Blank Page</a></li>
 
                         </ul>
