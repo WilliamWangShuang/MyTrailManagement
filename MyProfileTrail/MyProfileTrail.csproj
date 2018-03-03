@@ -184,6 +184,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="FutureSparkUtility\AesEncryptamajig.cs" />
@@ -198,6 +199,7 @@
     <Compile Include="Models\Customer.cs">
       <DependentUpon>FutureSparkModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FacebookLoginModel.cs" />
     <Compile Include="Models\FutureSparkModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -263,6 +265,7 @@
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\Facebook.js" />
     <Content Include="Scripts\fakeLoader.min.js" />
     <Content Include="Scripts\FutureSpark.js" />
     <Content Include="Scripts\jquery-1.11.1.js" />
@@ -301,6 +304,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="lib\" />
     <Folder Include="ProfilePic\" />
+    <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
