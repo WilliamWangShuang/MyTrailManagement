@@ -18,29 +18,80 @@
             </div>
 
             <div class="row">
-                <div class="panel panel-default">
-                    <div class="form-group">
-                        <label id="lblEmail">Email</label>
-                        <span class="glyphicon glyphicon-info-sign text-danger" title="@Resources.PageTextContentResources.emailExplanationTooltip"></span>
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @id = "txtEmail", @class = "form-control", @onblur = "registor_validate_email();" } })
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                        <span id="spanClientSideValidateEmail" style="display:none;color:black" class="label label-warning">@Resources.ErrorMessage.Email</span>
-                    </div>
-                    <div class="form-group">
-                        <label id="lblPassword">Password</label>
-                        <span class="glyphicon glyphicon-info-sign text-danger" title="@Resources.PageTextContentResources.passwordExplanationTooltip"></span>
-                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @id = "txtPwd", @class = "form-control", @type = "password", @onblur = "login_empty_password();" } })
-                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                        <span id="spanClientSideValidatePwd" style="display:none;color:black" class="label label-warning">@Resources.ErrorMessage.PasswordEmpty</span>
-                    </div>
-
-                    <input id="btnLoginUI" type="button" class="btn btn-default" value="Submit" onclick="login_check_form();" />
+                <div class="col-md-6">
+                    <h4> Login with facebook <strong> / </strong>Google :</h4>
+                    <br />
+                    <a href="index.html" class="btn btn-social btn-facebook">
+                        <i class="fa fa-facebook"></i>&nbsp; Facebook Account
+                    </a>
+                    &nbsp;OR&nbsp;
+                    <a href="index.html" class="btn btn-social btn-google">
+                        <i class="fa fa-google-plus"></i>&nbsp; Google Account
+                    </a>
+                    <hr />
+                    <h4> Or Login with <strong>JSPrinting Account  :</strong></h4>
+                    <br />
+                    <label id="lblEmail">Email</label>
+                    <span class="glyphicon glyphicon-info-sign text-danger" title="@Resources.PageTextContentResources.emailExplanationTooltip"></span>
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @id = "txtEmail", @class = "form-control", @onblur = "registor_validate_email();" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    <span id="spanClientSideValidateEmail" style="display:none;color:black" class="label label-warning">@Resources.ErrorMessage.Email</span>
+                    <br />
+                    <label id="lblPassword">Password</label>
+                    <span class="glyphicon glyphicon-info-sign text-danger" title="@Resources.PageTextContentResources.passwordExplanationTooltip"></span>
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @id = "txtPwd", @class = "form-control", @type = "password", @onblur = "login_empty_password();" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    <span id="spanClientSideValidatePwd" style="display:none;color:black" class="label label-warning">@Resources.ErrorMessage.PasswordEmpty</span>
+                    <hr />
+                    <input id="btnLoginUI" type="button" class="btn btn-info" value="Log Me In" onclick="login_check_form();" />
                     <input id="btnLogin" type="button" style="display:none" onclick="confirm_login();" />
                     <button id="btnShowInvalidAccMsg" data-toggle="modal" data-target="#myModal" style="display:none"></button>
                 </div>
-            </div>
+
+                <div class="col-md-6">
+                    <div class="alert alert-info">
+                        This is a free bootstrap admin template with basic pages you need to craft your project.
+                        Use this template for free to use for personal and commercial use.
+                        <br />
+                        <strong> Some of its features are given below :</strong>
+                        <ul>
+                            <li>
+                                Responsive Design Framework Used
+                            </li>
+                            <li>
+                                Easy to use and customize
+                            </li>
+                            <li>
+                                Font awesome icons included
+                            </li>
+                            <li>
+                                Clean and light code used.
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="alert alert-success">
+                        <strong> Instructions To Use:</strong>
+                        <ul>
+                            <li>
+                                Lorem ipsum dolor sit amet ipsum dolor sit ame
+                            </li>
+                            <li>
+                                Aamet ipsum dolor sit ame
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet ipsum dolor
+                            </li>
+                            <li>
+                                Cpsum dolor sit ame
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
         </div>
     </div>
+</div>
 }
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
