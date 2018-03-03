@@ -145,7 +145,7 @@ function create_user_check_form() {
 function fblogin() {
     FB.login(function (response) {
         //...
-    }, { scope: 'read_stream,publish_stream,offline_access' });
+    }, { scope: 'public_profile' });
 }
 
 
