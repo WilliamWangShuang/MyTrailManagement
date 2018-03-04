@@ -102,6 +102,46 @@ namespace MyProfileTrail.Controllers
             return RedirectToAction("Index");
         }
 
+        // POST: Customers/RegisterViaFB
+        [HttpPost]
+        public ActionResult RegisterViaFB(HttpPostedFileBase postFile, [Bind(Include = "Id,CFirstName,CLastName,Email,Password")] Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                int isSucc = 0;
+                String loginCusName = string.Empty;
+                bool isCusExist = CustomerDAL.IsCustomer(db.Customers, new LoginModel { Email = customer.Email, Password = customer.Password }, out loginCusName);
+
+                if (!isCusExist)
+                { 
+                    customer.Role = Constant.ROLE_EMPLOYER;
+                    customer.Password = AesEncryptamajig.Encrypt(customer.Password, AesEncryptamajig.getKey());
+                    db.Customers.Add(customer);
+                    LogUtils.Debug(customer.CFirstName + " " + customer.CLastName + " " + customer.Email + " " + customer.Password);
+                    isSucc = db.SaveChanges();
+                }
+
+                if (isSucc == 1 || isCusExist)
+                {
+                    //upload profile photo
+                    if (postFile != null)
+                    {
+                        string path = Server.MapPath("~/ProfilePic/");
+                        if (!Directory.Exists(path))
+                        {
+                            Directory.CreateDirectory(path);
+                        }
+                        postFile.SaveAs(path + customer.Id);
+                    }
+
+                    Session[Constant.SK_LOGIN] = Constant.INDICATOR_Y;
+                    return Json(Url.Action("Index", "Home"));
+                }
+            }
+
+            return Json("Fail");
+        }
+
         // GET: Customers/Edit/5
         public ActionResult Edit(int? id)
         {

@@ -142,11 +142,44 @@ function create_user_check_form() {
 
 //<<end client side validations>>
 
+function addNewCustomer(fName, lName, email) {
+    alert(fName + " " + lName + " " + email);
+    var jsonObject = {
+        "CFirstName": fName,
+        "CLastName": lName,
+        "Email": email,
+        "Password": "P@ssw0rd"
+    };
+
+    $.ajax({
+        url: "/Customers/RegisterViaFB",
+        type: "POST",
+        data: JSON.stringify(jsonObject),
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            isFail = data.match("^Fail");
+            if (!isFail) {
+                $(".fakeloader").fakeLoader({
+
+                    // Time in milliseconds for fakeLoader disappear
+                    timeToHide: 9000,
+
+                    // 'spinner1', 'spinner2', 'spinner3', 'spinner4', 'spinner5', 'spinner6', 'spinner7' 
+                    spinner: "spinner4",
+                    bgColor: "#929292"
+
+                });
+                window.location.href = data;
+            }
+            else {
+                $("#btnShowInvalidAccMsg").click();
+            }
+        }
+    });
+}
 
 function fblogin() {
-    //FB.login(function (response) {
-        
-    //});
     FB.login(function (response) {
         if (response.authResponse) {
             FB.logout(function (response) {
@@ -154,16 +187,16 @@ function fblogin() {
             });
 
             //console.log('Welcome!  Fetching your information.... ');
-            FB.api('/me', { fields: 'name,email' }, function (response) {
+            FB.api('/me', { fields: 'first_name, last_name,email' }, function (response) {
                 //console.log('Good to see you, ' + response.name + '.');
-                alert(response.email)
+                alert("****" + response.first_name + response.last_name + response.email);
+                addNewCustomer(response.first_name, response.last_name, response.email);
             });
         } else {
             //console.log('User cancelled login or did not fully authorize.');
         }
-    }, { 'scope':'email' });
+    }, { 'scope': 'email' });
 }
-
 
 $(document).ready(function () {
     var tooltips = $("[title]").tooltip({

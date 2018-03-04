@@ -9,7 +9,7 @@
         });
 
         FB.Event.subscribe('auth.login', function (response) {
-            var credentials = { uid: response.authResponse && response.authResponse.userID, accessToken: response.authResponse.accessToken };
+            var credentials = { uid: response.authResponse && response.authResponse.userID, accessToken: response.authResponse && response.authResponse.accessToken };
             SubmitLogin(credentials);
         });
 
@@ -35,11 +35,11 @@
                     alert("error logging in to your facebook account.");
                 },
                 success: function () {
-                    window.location.reload();
+                    //window.location.reload();
                 }
             });
         }
-
+        
     };
 
     (function (d) {
