@@ -15,10 +15,14 @@
 
         FB.getLoginStatus(function (response) {
             if (response.status === 'connected') {
-                alert("user is logged into fb");
+                //alert("user is logged into fb");
             }
-            else if (response.status === 'not_authorized') { alert("user is not authorised"); }
-            else { alert("user is not conntected to facebook"); }
+            else if (response.status === 'not_authorized') {
+                //alert("user is not authorised");
+            }
+            else {
+                //alert("user is not conntected to facebook");
+            }
 
         });
 
@@ -51,14 +55,3 @@
     }(document));
 
 }
-
-FB.login(function (response) {
-    if (response.authResponse) {
-        //console.log('Welcome!  Fetching your information.... ');
-        FB.api('/me', function (response) {
-            //console.log('Good to see you, ' + response.name + '.');
-        });
-    } else {
-        //console.log('User cancelled login or did not fully authorize.');
-    }
-});

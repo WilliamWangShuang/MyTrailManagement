@@ -142,10 +142,26 @@ function create_user_check_form() {
 
 //<<end client side validations>>
 
+
 function fblogin() {
+    //FB.login(function (response) {
+        
+    //});
     FB.login(function (response) {
-        //...
-    }, { scope: 'public_profile' });
+        if (response.authResponse) {
+            FB.logout(function (response) {
+                // Person is now logged out
+            });
+
+            //console.log('Welcome!  Fetching your information.... ');
+            FB.api('/me', function (response) {
+                //console.log('Good to see you, ' + response.name + '.');
+                alert(response.email)
+            });
+        } else {
+            //console.log('User cancelled login or did not fully authorize.');
+        }
+    }, { scope: 'email' });
 }
 
 
